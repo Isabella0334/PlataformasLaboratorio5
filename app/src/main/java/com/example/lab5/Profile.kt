@@ -80,14 +80,30 @@ fun TopBar() {
 
 @Composable
 fun ProfilePicture() {
-    Image(
-        painter = painterResource(id = R.drawable.profile_pic),
-        contentDescription = "Profile Picture",
+    Box(
         modifier = Modifier
-            .size(100.dp)
-            .clip(CircleShape),
-        contentScale = ContentScale.Crop
-    )
+            .fillMaxWidth()
+            .height(200.dp)
+    ) {
+
+        Image(
+            painter = painterResource(id = R.drawable.background_pic),
+            contentDescription = "Fondo de perfil",
+            modifier = Modifier
+                .fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.profile_pic),
+            contentDescription = "Imagen de perfil",
+            modifier = Modifier
+                .size(100.dp)
+                .clip(CircleShape)
+                .align(Alignment.BottomCenter),
+            contentScale = ContentScale.Crop
+        )
+    }
 }
 
 @Composable
@@ -138,7 +154,6 @@ fun MenuButton(label: String, symbol: String, onClick: () -> Unit) {
             Text(text = symbol, fontSize = 24.sp)
             Spacer(modifier = Modifier.width(16.dp))
             Text(text = label, fontSize = 16.sp)
-        }
-    }
+ }
+ }
 }
-
